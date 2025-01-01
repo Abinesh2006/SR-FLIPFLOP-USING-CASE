@@ -1,8 +1,8 @@
-### SYNCHRONOUS-UP-COUNTER
+# SR-FLIPFLOP-USING-CASE
 
 **AIM:**
 
-To implement 4 bit synchronous up counter and validate functionality.
+To implement  SR flipflop using verilog and validating their functionality using their functional tables
 
 **SOFTWARE REQUIRED:**
 
@@ -10,50 +10,57 @@ Quartus prime
 
 **THEORY**
 
-**4 bit synchronous UP Counter**
+SR Flip-Flop SR flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, SR latch operates with enable signal. The circuit diagram of SR flip-flop is shown in the following figure.
 
-If we enable each J-K flip-flop to toggle based on whether or not all preceding flip-flop outputs (Q) are “high,” we can obtain the same counting sequence as the asynchronous circuit without the ripple effect, since each flip-flop in this circuit will be clocked at exactly the same time:
+![image](https://github.com/naavaneetha/SR-FLIPFLOP-USING-CASE/assets/154305477/0f710028-ad52-4d3e-9276-8714cf023a25)
 
-![image](https://github.com/naavaneetha/SYNCHRONOUS-UP-COUNTER/assets/154305477/d5db3fa0-e413-404c-b80e-b2f39d82e7e8)
+ 
+This circuit has two inputs S & R and two outputs Qtt & Qtt’. The operation of SR flipflop is similar to SR Latch. But, this flip-flop affects the outputs only when positive transition of the clock signal is applied instead of active enable. The following table shows the state table of SR flip-flop.
 
+![image](https://github.com/naavaneetha/SR-FLIPFLOP-USING-CASE/assets/154305477/dabfc4f4-87e3-4cbc-9472-f89ee1b5ed30)
 
-![image](https://github.com/naavaneetha/SYNCHRONOUS-UP-COUNTER/assets/154305477/52cb61eb-d04b-442d-810c-31185a68410b)
+ 
+Here, Qtt & Qt+1t+1 are present state & next state respectively. So, SR flip-flop can be used for one of these three functions such as Hold, Reset & Set based on the input conditions, when positive transition of clock signal is applied. The following table shows the characteristic table of SR flip-flop. Present Inputs Present State Next State
 
-Each flip-flop in this circuit will be clocked at exactly the same time.
-The result is a four-bit synchronous “up” counter. Each of the higher-order flip-flops are made ready to toggle (both J and K inputs “high”) if the Q outputs of all previous flip-flops are “high.”
-Otherwise, the J and K inputs for that flip-flop will both be “low,” placing it into the “latch” mode where it will maintain its present output state at the next clock pulse.
-Since the first (LSB) flip-flop needs to toggle at every clock pulse, its J and K inputs are connected to Vcc or Vdd, where they will be “high” all the time.
-The next flip-flop need only “recognize” that the first flip-flop’s Q output is high to be made ready to toggle, so no AND gate is needed.
-However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
+![image](https://github.com/naavaneetha/SR-FLIPFLOP-USING-CASE/assets/154305477/dd90d16c-aec5-4290-a586-e2346b1e9eb5)
+
+ 
+By using three variable K-Map, we can get the simplified expression for next state, Qt+1t+1. The three variable K-Map for next state, Qt+1t+1 is shown in the following figure.
+
+![image](https://github.com/naavaneetha/SR-FLIPFLOP-USING-CASE/assets/154305477/473efad6-d70b-4ca7-aeb7-898bbfca319f)
+
+ 
+The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=S+R′Q(t)Q(t+1)=S+R′Q(t)
 
 **Procedure**
 
-1.Type the program in Quartus software.
-2.Compile and run the program.
-3.Generate the RTL schematic and save the logic diagram.
-4.Create nodes for inputs and outputs to generate the timing diagram.
-5.For different input combinations generate the timing diagram.
+Step 1: Open Quartus II in your laptop.
+Step 2: Write code to implement SR flipflop using verilog and validating their functionality using their
+functional tables.
+Step 3: Run compilation to check for errors.
+Step 4: Open waveform output and load input values.
+Step 5: Run simulation to get the output.
+Step 6: Open in RTL viewers to get RTL diagram output.
+
 
 **PROGRAM**
 
-![Screenshot 2024-12-23 114212](https://github.com/user-attachments/assets/3a0939c2-fbcd-49c2-9c58-a7234cbf657a)
+![Screenshot 2024-12-23 105726](https://github.com/user-attachments/assets/d6a7b8ab-7814-471c-8a64-1448472f1796)
 
 
-Developed by:D.Nitish Adavan
-
-RegisterNumber:24901049
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
-**RTL LOGIC UP COUNTER**
+**RTL LOGIC FOR FLIPFLOPS**
 
-![Screenshot 2024-12-23 114224](https://github.com/user-attachments/assets/19472d2a-8a8c-4537-811a-2efa07045575)
+![Screenshot 2024-12-23 105223](https://github.com/user-attachments/assets/e083ffd7-06b0-4332-91b6-adf96b5b392c)
 
 
-**TIMING DIAGRAM FOR IP COUNTER**
+**TIMING DIGRAMS FOR FLIP FLOPS**
 
-![Screenshot 2024-12-23 114237](https://github.com/user-attachments/assets/62fb86e8-c28a-40a1-b602-df6a8ff4af7c)
+![Screenshot 2024-12-23 105231](https://github.com/user-attachments/assets/bf9f6009-7068-42f3-b6cd-4d9f82fa1c90)
 
 
 **RESULTS**
-Thus, the JK Flip-Flop is designed, and its functionality is validated using the
+Thus, the SR Flip-Flop is designed, and its functionality is validated using the
 truth table and timing diagrams.
